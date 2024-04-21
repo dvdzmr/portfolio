@@ -9,12 +9,12 @@ function Contact() {
   return (
     <Container id="contact" className='contactme'>
             <div className="row">
-            <div className="col-lg-12 text-center">
-                <h1>Contact Me</h1>
-                <hr/>
+                <div className="col-lg-12 text-center">
+                    <h1>Contact Me</h1>
+                    <hr/>
+                </div>
             </div>
-            </div>
-            <div className="row contactform">
+            <div className="contactform">
                 <form action="https://formspree.io/f/mknllkkw" method="POST" name="sentMessage" id="contactForm">
                 <div className="row control-group">
                     <div className="form-group floating-label-form-group controls">
