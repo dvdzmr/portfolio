@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.22dccb96.css",
-    "main.js": "/portfolio/static/js/main.a949b652.js",
-    "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
-    "static/media/david_header.jpg": "/portfolio/static/media/david_header.3fa595691d9f38b9708d.jpg",
-    "index.html": "/portfolio/index.html",
-    "main.22dccb96.css.map": "/portfolio/static/css/main.22dccb96.css.map",
-    "main.a949b652.js.map": "/portfolio/static/js/main.a949b652.js.map",
-    "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
+    "main.css": "/www.davidzamir.com/static/css/main.b7d968b0.css",
+    "main.js": "/www.davidzamir.com/static/js/main.ccbbc330.js",
+    "static/js/453.1407b060.chunk.js": "/www.davidzamir.com/static/js/453.1407b060.chunk.js",
+    "static/media/david_header.jpg": "/www.davidzamir.com/static/media/david_header.3fa595691d9f38b9708d.jpg",
+    "index.html": "/www.davidzamir.com/index.html",
+    "main.b7d968b0.css.map": "/www.davidzamir.com/static/css/main.b7d968b0.css.map",
+    "main.ccbbc330.js.map": "/www.davidzamir.com/static/js/main.ccbbc330.js.map",
+    "453.1407b060.chunk.js.map": "/www.davidzamir.com/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.22dccb96.css",
-    "static/js/main.a949b652.js"
+    "static/css/main.b7d968b0.css",
+    "static/js/main.ccbbc330.js"
   ]
 }
