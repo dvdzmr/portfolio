@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.fd5cb4db.css",
-    "main.js": "./static/js/main.ce655802.js",
-    "static/js/453.1407b060.chunk.js": "./static/js/453.1407b060.chunk.js",
-    "static/media/david_header.jpg": "./static/media/david_header.3fa595691d9f38b9708d.jpg",
-    "index.html": "./index.html",
-    "main.fd5cb4db.css.map": "./static/css/main.fd5cb4db.css.map",
-    "main.ce655802.js.map": "./static/js/main.ce655802.js.map",
-    "453.1407b060.chunk.js.map": "./static/js/453.1407b060.chunk.js.map"
+    "main.css": "/dvdzmr.github.io/static/css/main.a9a2d9a3.css",
+    "main.js": "/dvdzmr.github.io/static/js/main.d9a3fb4f.js",
+    "static/js/453.1407b060.chunk.js": "/dvdzmr.github.io/static/js/453.1407b060.chunk.js",
+    "static/media/david_header.jpg": "/dvdzmr.github.io/static/media/david_header.3fa595691d9f38b9708d.jpg",
+    "index.html": "/dvdzmr.github.io/index.html",
+    "main.a9a2d9a3.css.map": "/dvdzmr.github.io/static/css/main.a9a2d9a3.css.map",
+    "main.d9a3fb4f.js.map": "/dvdzmr.github.io/static/js/main.d9a3fb4f.js.map",
+    "453.1407b060.chunk.js.map": "/dvdzmr.github.io/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd5cb4db.css",
-    "static/js/main.ce655802.js"
+    "static/css/main.a9a2d9a3.css",
+    "static/js/main.d9a3fb4f.js"
   ]
 }
