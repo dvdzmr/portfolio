@@ -1,0 +1,15 @@
+.aboutme {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    color: white;
+    
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .aboutme {
+        width: 90%;
+    }
+    
+}

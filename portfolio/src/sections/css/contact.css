@@ -1,0 +1,17 @@
+.contactme {
+    color: white;
+}
+
+.contactform {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .contactform {
+        width: 100%;
+    }
+    
+}
