@@ -4,7 +4,7 @@ import About from "./sections/About";
 import Contact from "./sections/Contact"
 import "./App.css"
 
-function App() {
+export default function App() {
   return (
     <main>
       <Header/>
@@ -15,4 +15,3 @@ function App() {
   );
 }
 
-export default App;
