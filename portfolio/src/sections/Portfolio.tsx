@@ -1,97 +1,90 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
-import "./css/portfolio.css"
+import React, {useState} from "react";
+import "./css/portfolio.css";
+import { content } from "../projects/content";
+import { Button } from 'react-bootstrap';
 
-import {HashRouter, Route, Routes, NavLink} from "react-router-dom";
+type ModalState = {
+    modalOn: boolean;
+};
 
+let currentIndex = 99;
 
-const routes = (
-    <Routes>
-      <Route path="/project_one" element={<ProjectOne />} />
-      <Route path="/project_two" element={<ProjectTwo />} />
-      <Route path="/project_three" element={<ProjectThree />} />
-    </Routes>
-)
-
-function ProjectOne() {
-  return <h1 style={{color: "white"}}>Project One info here</h1>
-}
-function ProjectTwo() {
-  return <h1 style={{color: "white"}}>Project Two info here</h1>
-}
-
-function ProjectThree() {
-  return <h1 style={{color: "white"}}>Project Three info here</h1>
-}
-
-
-
-
-
-
-
-
-
-
-function ResponsiveAutoExample() {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  return (
-    <>
-      <Container id="projects" className='Projects'>
-        <h1>My Projects</h1>
-        <Row className="Projects_row">
-
-
-          <Col sm >
-            <a className="d-block mb-4 h-100 mycontainer" href="#project_one">
-              <img className="img-fluid img-thumbnail image" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="" />
-              <div className="middle">
-                <div className="text">Project #1</div>
-              </div>
-            </a>
-          </Col>
-
-
-
-          <Col sm >
-            <a className="d-block mb-4 h-100 mycontainer" href="#project_two">
-              <img className="img-fluid img-thumbnail image" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="" />
-              <div className="middle">
-                <div className="text">Project #2</div>
-              </div>
-            </a>
-          </Col>
-
-
-          <Col sm >
-            <a className="d-block mb-4 h-100 mycontainer" href="#project_three">
-              <img className="img-fluid img-thumbnail image" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="" />
-              <div className="middle">
-                <div className="text">Project #3</div>
-              </div>
-            </a>
-            </Col>
-
-
-        </Row>
-      </Container>
-
-      <HashRouter>
-        {routes}
-      </HashRouter>
-
-    </>
-  );
+export default class MyProjects extends React.Component {
+    render() {
+        return (
+            <>
+                <Container id="projects" className='Projects'>
+                    <h1>My Projects</h1>
+                    <Row className="Projects_row">
+                        <ProjectTitles  modalOn/>
+                    </Row>
+                </Container>
+            </>
+        );
+    }
 }
 
 
 
+class ProjectTitles extends React.Component<ModalState> {
+
+    state: ModalState = {
+        modalOn: false
+    }
 
 
-export default ResponsiveAutoExample;
+    _onButtonClick(index: number) {
+        currentIndex = index;
+        // console.log("clicked", index);
+        this.setState({ modalOn: (!this.state.modalOn) });
+    }
+
+
+    render(){
+
+        return content.map((post) => {
+                return (
+                    <>
+                        {! this.state.modalOn ?
+                            <Col sm className='mycontainer'>
+                                <div className="middle text">{post.title}</div>
+                                <a href="#projects" className="d-block"
+                                   onClick={() => this._onButtonClick(post.id)}>
+                                    <img className="img-fluid img-thumbnail image"
+                                         src={post.thumbnail} alt=""/>
+                                </a>
+                            </Col>
+                            :
+                            null
+                        }
+                        {this.state.modalOn && currentIndex === post.id?
+                            <div className="projectFull ">
+                                <a href="#projects"
+                                   onClick={() => this._onButtonClick(post.id)}>
+                                    <div className="mycontainer">
+                                        <img className="img-fluid img-thumbnail image "
+                                             src={post.thumbnail} alt=""/>
+                                    </div>
+                                </a>
+                                <br/>
+                                <h1>{post.title}</h1>
+                                <p>{post.content}</p>
+                                <img className="projectFullImages" src={post.images[0]} alt=""/>
+
+                                <Button className="w-100" variant="dark" href={post.link}>Check out this
+                                    project</Button>
+                                <br/>
+
+                                <Button variant="dark" onClick={() => this._onButtonClick(post.id)}>Close</Button>
+                            </div> :
+                            null
+                        }
+                    </>
+                );
+            }
+        );
+    }
+}
