@@ -2,41 +2,35 @@
 export const content = [
   {
     "id": 1,
-    "title": "Hello World",
-    "content": "Hello this is my project, " +
-        "here I will explain how i did everything in a brief way. " +
-        "I'm expecting this area to be no more than a paragraph. I'm trying to test how well this text will flow, and " +
-        "whether or not i need to think about adding more flexible ways.",
+    "title": "Weather app",
+    "content": 'react Weather app using redux ello hello',
     "date": "01-01-2024",
     "images": [
-      require("../media/david_header.jpg"),
       require("../media/david_header.jpg")
     ],
-    "thumbnail" : require("../media/portfolio/cabin.png"),
-    "link": "https://github.com/dvdzmr"
+    "thumbnail" : require("../media/projects/weather_app_thumbnail.png"),
+    "link": "https://github.com/dvdzmr/react-weather"
   },
   {
     "id": 2,
-    "title": "Hello World",
-    "content": "Try Reactjs is awesome. Can't wait to learn more",
+    "title": "ESP32 project",
+    "content": "ESP32 project written in C, with C++ components, more content coming soon",
     "date": "01-01-2024",
     "images": [
-      require("../media/david_header.jpg"),
       require("../media/david_header.jpg")
     ],
-    "thumbnail" : require("../media/portfolio/cake.png"),
+    "thumbnail" : require("../media/projects/esp_project_thumbnail.png"),
     "link": "https://github.com/dvdzmr"
   },
   {
     "id": 3,
-    "title": "Hello World",
-    "content": "Try Reactjs is awesome. Can't wait to learn more",
+    "title": "Python Project",
+    "content": "Python project about ??, more content coming soon",
     "date": "01-01-2024",
     "images": [
-      require("../media/david_header.jpg"),
       require("../media/david_header.jpg")
     ],
-    "thumbnail" : require("../media/portfolio/circus.png"),
+    "thumbnail" : require("../media/projects/python_project_thumbnail.png"),
     "link": "https://github.com/dvdzmr"
   }
 ]

@@ -17,29 +17,30 @@ h1 {
 }
 
 /*Project cover photo*/
-.projectFull .image {
+.project_full .image {
   object-fit: cover;
   max-height: 35vh;
-}
-
-/*Project images that are inside the story*/
-.projectFullImages {
   max-width: 100%;
 }
 
-.projectFull h1 {
+/*Project images that are inside the story*/
+.project_full img {
+  max-width: 100%;
+}
+
+.project_full h1 {
   font-size: 4em;
   margin-bottom: 1em;
-  padding-top: 3%;
+  padding-top: 0;
 }
 
-.projectFull a {
+.project_full a {
   font-size: 4em;
 }
 
 
-.projectFull p {
-  font-size: 2em;
+.project_full p {
+  font-size: 1em;
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
