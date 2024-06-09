@@ -6,7 +6,7 @@ import {Button, Form} from "react-bootstrap";
 export default function Contact() {
 
     return (
-        <Container id="contact">
+        <Container id="contact" className="contactme">
             <h1>Contact Me</h1>
             <hr/>
 

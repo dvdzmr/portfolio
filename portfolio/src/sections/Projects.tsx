@@ -1,28 +1,23 @@
 import "./css/projects.css"
-// import remarkGfm from "remark-gfm";
-// import Markdown from "react-markdown";
-import React, {useEffect, useState} from "react";
-import {Col, Row, Image, Modal, Button} from "react-bootstrap";
+import {SetStateAction, useEffect, useState} from "react";
+import {Button, Col, Image, Modal, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 
 
-interface ProjectProperties {
-    title: string
-    tagline: string
-    images: [string, string]
-    description: string
-}
-
-
-
 export default function Projects() {
-    const [projects, setProjects] = useState<ProjectProperties>([])
+    const [projects, setProjects] = useState([{
+        title: "placeholder",
+        tagline: "placeholder",
+        images: {cover: "./src/media/placeholder_project.png", detail: "./src/media/placeholder_project.png"},
+        description: "placeholder"
+    }])
     const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio-projects/main/projects.json"
     const [showModal, setShowModal] = useState(false);
-    const [modalTitle, setModalTitle] = useState("")
-    const [modalDescription, setModalDescription] = useState("")
-    const [modalDetailImage, setModalDetailImage] = useState("")
-
+    const [modalTitle, setModalTitle] = useState("");
+    const [modalDescription, setModalDescription] = useState("");
+    const [modalDetailImage, setModalDetailImage] = useState("");
+    const [showTagline, setShowTagline] = useState(99);
+    const [gridOpacity, setGridOpacity] = useState(1);
 
     useEffect(() => {
         fetch(projectUrl)
@@ -30,24 +25,35 @@ export default function Projects() {
             .then((data) => {
                 setProjects(data);
             })
-
     }, []);
 
-    const showProject = (project) => {
+    const showProject = (project: {
+        title: SetStateAction<string>;
+        description: SetStateAction<string>;
+        images: { detail: SetStateAction<string>; };
+    }) => {
         // console.log(project);
         setModalTitle(project.title);
         setModalDescription(project.description);
         setModalDetailImage(project.images.detail);
-
         setShowModal(true);
-
-
     }
-
     const handleClose = () => setShowModal(false);
 
+
+    const handleHoverOn = (index: number) => {
+        setShowTagline(index);
+        setGridOpacity(index)
+    }
+
+    const handleHoverOff = () => {
+        setShowTagline(99);
+        setGridOpacity(99);
+    }
+
+
     return (
-        <Container id="projects">
+        <Container id="projects" className="projects">
             <h1>Projects</h1>
             <hr/>
             <Modal
@@ -70,44 +76,77 @@ export default function Projects() {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            {projects.map((item, index) => (
+            {projects.map((_item, index) => (
                     <div key={index}>
                         {index % 3 == 0 ?
                             <Row>
-                                {index < Object.keys(projects).length ? <Col>
-                                    <Image
-                                        className="project-grid"
-                                        fluid
-                                        src={projects[index].images.cover}
-                                        rounded
-                                        onClick={() => showProject(projects[index])}
-                                        //TODO: ONHOVER SHOW TAGLINE
-                                        onMouseOver={(e) => e.target.style.opacity = 0.5}
-                                        onMouseLeave={(e) => e.target.style.opacity = 1}
-                                    />
-                                </Col> : null}
-                                {index + 1 < Object.keys(projects).length ? <Col>
-                                    <Image
-                                        className="project-grid"
-                                        fluid
-                                        src={projects[index + 1].images.cover}
-                                        rounded
-                                        onClick={() => showProject(projects[index + 1])}
-                                        onMouseOver={(e) => e.target.style.opacity = 0.5}
-                                        onMouseLeave={(e) => e.target.style.opacity = 1}
-                                    />
-                                </Col> : null}
-                                {index + 2 < Object.keys(projects).length ? <Col>
-                                    <Image
-                                        className="project-grid"
-                                        fluid
-                                        src={projects[index + 2].images.cover}
-                                        rounded
-                                        onClick={() => showProject(projects[index + 2])}
-                                        onMouseOver={(e) => e.target.style.opacity = 0.5}
-                                        onMouseLeave={(e) => e.target.style.opacity = 1}
-                                    />
-                                </Col> : null}
+                                {index < Object.keys(projects).length ?
+                                    <Col
+                                        className="project-row"
+                                        onMouseOver={() => {
+                                            handleHoverOn(index)
+                                        }}
+                                        onMouseLeave={() => {
+                                            handleHoverOff()
+                                        }}
+                                    >
+                                        <Image
+                                            style={{opacity: gridOpacity === index ? '0.5' : '1'}}
+                                            className="project-grid"
+                                            fluid
+                                            src={projects[index].images.cover}
+                                            rounded
+                                            onClick={() => showProject(projects[index])}
+                                        />
+                                        {showTagline === index ?
+                                            <div className="project-grid-text"><h1>{projects[index].title}</h1><br/>
+                                                <h4>{projects[index].tagline}</h4></div> : null}
+                                    </Col> : null}
+                                {index + 1 < Object.keys(projects).length ?
+                                    <Col
+                                        className="project-row"
+                                        onMouseOver={() => {
+                                            handleHoverOn(index + 1)
+                                        }}
+                                        onMouseLeave={() => {
+                                            handleHoverOff()
+                                        }}
+                                    >
+                                        <Image
+                                            className="project-grid"
+                                            style={{opacity: gridOpacity === index + 1 ? '0.5' : '1'}}
+                                            fluid
+                                            src={projects[index + 1].images.cover}
+                                            rounded
+                                            onClick={() => showProject(projects[index + 1])}
+                                        />
+                                        {showTagline === index + 1 ?
+                                            <div className="project-grid-text"><h1>{projects[index+1].title}</h1><br/>
+                                                <h4>{projects[index+1].tagline}</h4></div> : null}
+
+                                    </Col> : null}
+                                {index + 2 < Object.keys(projects).length ?
+                                    <Col
+                                        className="project-row"
+                                        onMouseOver={() => {
+                                            handleHoverOn(index + 2)
+                                        }}
+                                        onMouseLeave={() => {
+                                            handleHoverOff()
+                                        }}
+                                    >
+                                        <Image
+                                            className="project-grid"
+                                            style={{opacity: gridOpacity === index + 2 ? '0.5' : '1'}}
+                                            fluid
+                                            src={projects[index + 2].images.cover}
+                                            rounded
+                                            onClick={() => showProject(projects[index + 2])}
+                                        />
+                                        {showTagline === index + 2 ?
+                                            <div className="project-grid-text"><h1>{projects[index+2].title}</h1><br/>
+                                                <h4>{projects[index+2].tagline}</h4></div> : null}
+                                    </Col> : null}
                             </Row> : null}
 
                     </div>
@@ -117,6 +156,3 @@ export default function Projects() {
         </Container>
     )
 }
-
-//todo: hover over + click handle + modal
-//todo: load image from URL instead of local path
