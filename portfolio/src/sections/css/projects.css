@@ -16,8 +16,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
+.mobile-text{
+    background-color: grey;
+    opacity: 0.6;
+}
 .projects {
     margin-top: 3%;
 }

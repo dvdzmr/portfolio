@@ -2,7 +2,9 @@ import "./css/projects.css"
 import {SetStateAction, useEffect, useState} from "react";
 import {Button, Col, Image, Modal, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import {MobileView} from 'react-device-detect';
 
+//TODO: simplify mobile/desktop view without code duplication.
 
 export default function Projects() {
     const [projects, setProjects] = useState([{
@@ -11,13 +13,13 @@ export default function Projects() {
         images: {cover: "./src/media/placeholder_project.png", detail: "./src/media/placeholder_project.png"},
         description: "placeholder"
     }])
-    const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio-projects/main/projects.json"
+    const projectUrl = "https://raw.githubusercMobileViewontent.com/dvdzmr/portfolio-projects/main/projects.json"
     const [showModal, setShowModal] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
     const [modalDescription, setModalDescription] = useState("");
     const [modalDetailImage, setModalDetailImage] = useState("");
     const [showTagline, setShowTagline] = useState(99);
-    const [gridOpacity, setGridOpacity] = useState(1);
+    const [gridOpacity, setGridOpacity] = useState(99);
 
     useEffect(() => {
         fetch(projectUrl)
@@ -89,6 +91,7 @@ export default function Projects() {
                                         onMouseLeave={() => {
                                             handleHoverOff()
                                         }}
+                                        onClick={() => showProject(projects[index])}
                                     >
                                         <Image
                                             style={{opacity: gridOpacity === index ? '0.5' : '1'}}
@@ -96,11 +99,14 @@ export default function Projects() {
                                             fluid
                                             src={projects[index].images.cover}
                                             rounded
-                                            onClick={() => showProject(projects[index])}
                                         />
                                         {showTagline === index ?
                                             <div className="project-grid-text"><h1>{projects[index].title}</h1><br/>
                                                 <h4>{projects[index].tagline}</h4></div> : null}
+                                        <MobileView>
+                                            <div className="project-grid-text mobile-text"><h1>{projects[index].title}</h1><br/>
+                                                <h4>{projects[index].tagline}</h4></div>
+                                        </MobileView>
                                     </Col> : null}
                                 {index + 1 < Object.keys(projects).length ?
                                     <Col
@@ -111,6 +117,7 @@ export default function Projects() {
                                         onMouseLeave={() => {
                                             handleHoverOff()
                                         }}
+                                        onClick={() => showProject(projects[index + 1])}
                                     >
                                         <Image
                                             className="project-grid"
@@ -118,11 +125,14 @@ export default function Projects() {
                                             fluid
                                             src={projects[index + 1].images.cover}
                                             rounded
-                                            onClick={() => showProject(projects[index + 1])}
                                         />
                                         {showTagline === index + 1 ?
                                             <div className="project-grid-text"><h1>{projects[index+1].title}</h1><br/>
                                                 <h4>{projects[index+1].tagline}</h4></div> : null}
+                                        <MobileView>
+                                            <div className="project-grid-text"><h1>{projects[index + 1].title}</h1><br/>
+                                                <h4>{projects[index + 1].tagline}</h4></div>
+                                        </MobileView>
 
                                     </Col> : null}
                                 {index + 2 < Object.keys(projects).length ?
@@ -134,6 +144,7 @@ export default function Projects() {
                                         onMouseLeave={() => {
                                             handleHoverOff()
                                         }}
+                                        onClick={() => showProject(projects[index + 2])}
                                     >
                                         <Image
                                             className="project-grid"
@@ -141,11 +152,15 @@ export default function Projects() {
                                             fluid
                                             src={projects[index + 2].images.cover}
                                             rounded
-                                            onClick={() => showProject(projects[index + 2])}
+
                                         />
                                         {showTagline === index + 2 ?
                                             <div className="project-grid-text"><h1>{projects[index+2].title}</h1><br/>
                                                 <h4>{projects[index+2].tagline}</h4></div> : null}
+                                        <MobileView>
+                                            <div className="project-grid-text"><h1>{projects[index + 2].title}</h1><br/>
+                                                <h4>{projects[index + 2].tagline}</h4></div>
+                                        </MobileView>
                                     </Col> : null}
                             </Row> : null}
 

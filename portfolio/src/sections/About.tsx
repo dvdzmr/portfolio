@@ -8,14 +8,15 @@ export default function About() {
             <h1>About Me</h1>
             <hr/>
 
-            <p>
-                Hi my name is David, I'm an aspiring web developer, embedded systems tinkerer and photographer &
-                videographer
+            <h3>
+                Hi my name is David, I'm an aspiring web developer, embedded systems tinkerer with a
+                background in photography & film.
 
-                My journey involves writing code for edge devices used in Quality-Control automation, working as a
-                freelance photographer, and much more.
+                My journey involves writing code for edge devices used in Quality-Control automation,
+                creating websites and applications using popular web development languages and frameworks.
 
-            </p>
+                My website serves as a way to introduce myself, and to show what projects I'm proud of.
+            </h3>
         </Container>
     )
 }
