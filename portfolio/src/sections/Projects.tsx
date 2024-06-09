@@ -8,9 +8,9 @@ import {MobileView} from 'react-device-detect';
 
 export default function Projects() {
     const [projects, setProjects] = useState([{
-        title: "placeholder",
+        title: "Error loading projects from remote source",
         tagline: "placeholder",
-        images: {cover: "./src/media/placeholder_project.png", detail: "./src/media/placeholder_project.png"},
+        images: {cover: "portfolio/src/media/placeholder_project.png", detail: "portfolio/src/media/placeholder_project.png"},
         description: "placeholder"
     }])
     const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio-projects/main/projects.json"
@@ -104,8 +104,8 @@ export default function Projects() {
                                             <div className="project-grid-text"><h1>{projects[index].title}</h1><br/>
                                                 <h4>{projects[index].tagline}</h4></div> : null}
                                         <MobileView>
-                                            <div className="project-grid-text mobile-text"><h1>{projects[index].title}</h1><br/>
-                                                <h4>{projects[index].tagline}</h4></div>
+                                            <div className="project-grid-text mobile-text"><h2>{projects[index].title}</h2><br/>
+                                                <h5>{projects[index].tagline}</h5></div>
                                         </MobileView>
                                     </Col> : null}
                                 {index + 1 < Object.keys(projects).length ?
@@ -130,8 +130,8 @@ export default function Projects() {
                                             <div className="project-grid-text"><h1>{projects[index+1].title}</h1><br/>
                                                 <h4>{projects[index+1].tagline}</h4></div> : null}
                                         <MobileView>
-                                            <div className="project-grid-text"><h1>{projects[index + 1].title}</h1><br/>
-                                                <h4>{projects[index + 1].tagline}</h4></div>
+                                            <div className="project-grid-text"><h2>{projects[index + 1].title}</h2><br/>
+                                                <h5>{projects[index + 1].tagline}</h5></div>
                                         </MobileView>
 
                                     </Col> : null}
@@ -158,8 +158,8 @@ export default function Projects() {
                                             <div className="project-grid-text"><h1>{projects[index+2].title}</h1><br/>
                                                 <h4>{projects[index+2].tagline}</h4></div> : null}
                                         <MobileView>
-                                            <div className="project-grid-text"><h1>{projects[index + 2].title}</h1><br/>
-                                                <h4>{projects[index + 2].tagline}</h4></div>
+                                            <div className="project-grid-text"><h2>{projects[index + 2].title}</h2><br/>
+                                                <h5>{projects[index + 2].tagline}</h5></div>
                                         </MobileView>
                                     </Col> : null}
                             </Row> : null}
