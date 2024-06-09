@@ -13,7 +13,7 @@ export default function Projects() {
         images: {cover: "./src/media/placeholder_project.png", detail: "./src/media/placeholder_project.png"},
         description: "placeholder"
     }])
-    const projectUrl = "https://raw.githubusercMobileViewontent.com/dvdzmr/portfolio-projects/main/projects.json"
+    const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio-projects/main/projects.json"
     const [showModal, setShowModal] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
     const [modalDescription, setModalDescription] = useState("");
