@@ -2,9 +2,6 @@ import "./css/projects.css"
 import {SetStateAction, useEffect, useState} from "react";
 import {Button, Col, Image, Modal, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import {MobileView} from 'react-device-detect';
-
-//TODO: simplify mobile/desktop view without code duplication.
 
 export default function Projects() {
     const [projects, setProjects] = useState([{
@@ -20,6 +17,9 @@ export default function Projects() {
     const [modalDetailImage, setModalDetailImage] = useState("");
     const [showTagline, setShowTagline] = useState(99);
     const [gridOpacity, setGridOpacity] = useState(99);
+    const [viewPortWidth, setViewPortWidth] = useState(99999);
+
+    const threeInaRow = [0,1,2];
 
     useEffect(() => {
         fetch(projectUrl)
@@ -27,7 +27,11 @@ export default function Projects() {
             .then((data) => {
                 setProjects(data);
             })
+
+        setViewPortWidth(window.innerWidth);
     }, []);
+
+    window.addEventListener("resize", () => setViewPortWidth(window.innerWidth));
 
     const showProject = (project: {
         title: SetStateAction<string>;
@@ -82,86 +86,35 @@ export default function Projects() {
                     <div key={index}>
                         {index % 3 == 0 ?
                             <Row>
-                                {index < Object.keys(projects).length ?
+                                {/*Loop between 1 and 3 */}
+                                {threeInaRow.map((_item, i) => (
+                                    <>
+                                    {index+i < Object.keys(projects).length ?
                                     <Col
+                                        sm
                                         className="project-row"
                                         onMouseOver={() => {
-                                            handleHoverOn(index)
+                                            handleHoverOn(index+i)
                                         }}
                                         onMouseLeave={() => {
                                             handleHoverOff()
                                         }}
-                                        onClick={() => showProject(projects[index])}
+                                        onClick={() => showProject(projects[index+i])}
                                     >
                                         <Image
-                                            style={{opacity: gridOpacity === index ? '0.5' : '1'}}
+                                            style={{opacity: gridOpacity === index+i || viewPortWidth < 576 ? '0.5' : '1'}}
                                             className="project-grid"
                                             fluid
-                                            src={projects[index].images.cover}
+                                            src={projects[index+i].images.cover}
                                             rounded
                                         />
-                                        {showTagline === index ?
-                                            <div className="project-grid-text"><h1>{projects[index].title}</h1><br/>
+                                        {showTagline === index+i || viewPortWidth < 576 ?
+                                            <div className="project-grid-text"><h1>{projects[index+i].title}</h1><br/>
                                                 <h4>{projects[index].tagline}</h4></div> : null}
-                                        <MobileView>
-                                            <div className="project-grid-text mobile-text"><h2>{projects[index].title}</h2><br/>
-                                                <h5>{projects[index].tagline}</h5></div>
-                                        </MobileView>
-                                    </Col> : null}
-                                {index + 1 < Object.keys(projects).length ?
-                                    <Col
-                                        className="project-row"
-                                        onMouseOver={() => {
-                                            handleHoverOn(index + 1)
-                                        }}
-                                        onMouseLeave={() => {
-                                            handleHoverOff()
-                                        }}
-                                        onClick={() => showProject(projects[index + 1])}
-                                    >
-                                        <Image
-                                            className="project-grid"
-                                            style={{opacity: gridOpacity === index + 1 ? '0.5' : '1'}}
-                                            fluid
-                                            src={projects[index + 1].images.cover}
-                                            rounded
-                                        />
-                                        {showTagline === index + 1 ?
-                                            <div className="project-grid-text"><h1>{projects[index+1].title}</h1><br/>
-                                                <h4>{projects[index+1].tagline}</h4></div> : null}
-                                        <MobileView>
-                                            <div className="project-grid-text"><h2>{projects[index + 1].title}</h2><br/>
-                                                <h5>{projects[index + 1].tagline}</h5></div>
-                                        </MobileView>
+                                    </Col> : null} </>
+                                    ))}
 
-                                    </Col> : null}
-                                {index + 2 < Object.keys(projects).length ?
-                                    <Col
-                                        className="project-row"
-                                        onMouseOver={() => {
-                                            handleHoverOn(index + 2)
-                                        }}
-                                        onMouseLeave={() => {
-                                            handleHoverOff()
-                                        }}
-                                        onClick={() => showProject(projects[index + 2])}
-                                    >
-                                        <Image
-                                            className="project-grid"
-                                            style={{opacity: gridOpacity === index + 2 ? '0.5' : '1'}}
-                                            fluid
-                                            src={projects[index + 2].images.cover}
-                                            rounded
 
-                                        />
-                                        {showTagline === index + 2 ?
-                                            <div className="project-grid-text"><h1>{projects[index+2].title}</h1><br/>
-                                                <h4>{projects[index+2].tagline}</h4></div> : null}
-                                        <MobileView>
-                                            <div className="project-grid-text"><h2>{projects[index + 2].title}</h2><br/>
-                                                <h5>{projects[index + 2].tagline}</h5></div>
-                                        </MobileView>
-                                    </Col> : null}
                             </Row> : null}
 
                     </div>
