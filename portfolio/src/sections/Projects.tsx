@@ -8,13 +8,19 @@ export default function Projects() {
         title: "Error loading projects from remote source",
         tagline: "placeholder",
         images: {cover: "portfolio/src/media/placeholder_project.png", detail: "portfolio/src/media/placeholder_project.png"},
-        description: "placeholder"
+        description: "placeholder",
+        repository: "",
+        deployment: ""
     }])
     const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio-projects/main/projects.json"
-    const [showModal, setShowModal] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
     const [modalDescription, setModalDescription] = useState("");
     const [modalDetailImage, setModalDetailImage] = useState("");
+    const [modalRepo, setModalRepo] = useState("");
+    const [modalDeploy, setModalDeploy] = useState("");
+    const [modalTagline, setModalTagline] = useState("");
+
+    const [showModal, setShowModal] = useState(false);
     const [showTagline, setShowTagline] = useState(99);
     const [gridOpacity, setGridOpacity] = useState(99);
     const [viewPortWidth, setViewPortWidth] = useState(99999);
@@ -35,13 +41,18 @@ export default function Projects() {
 
     const showProject = (project: {
         title: SetStateAction<string>;
+        tagline: SetStateAction<string>;
         description: SetStateAction<string>;
-        images: { detail: SetStateAction<string>; };
+        images: { detail: SetStateAction<string>;};
+        repository: SetStateAction<string>;
+        deployment: SetStateAction<string>;
     }) => {
-        // console.log(project);
         setModalTitle(project.title);
         setModalDescription(project.description);
         setModalDetailImage(project.images.detail);
+        setModalRepo(project.repository);
+        setModalDeploy(project.deployment);
+        setModalTagline(project.tagline);
         setShowModal(true);
     }
     const handleClose = () => setShowModal(false);
@@ -69,11 +80,22 @@ export default function Projects() {
                 fullscreen={'sm-down'}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>{modalTitle}</Modal.Title>
+                    <Modal.Title className="modal-title">
+                        <h1>{modalTitle}</h1>
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="modal-content">
-                    <h5>{modalDescription}</h5>
-                    <Image src={modalDetailImage} rounded fluid/>
+                    <Container>
+                        <h4 className="modal-tagline"><i>{modalTagline}</i></h4>
+                        <br/>
+                        <h4>{modalDescription}</h4>
+                        <br/>
+                        {modalDetailImage !== "" ? <Image className="modal-image" src={modalDetailImage} rounded fluid/> : null}
+                    </Container>
+                    <br/>
+                    {modalDeploy !== "" ? <Button className="modal-button" variant="secondary" href={modalDeploy}>Deployment</Button> : null}
+                    <br/>
+                    {modalRepo !== "" ? <Button className="modal-button" variant="secondary" href={modalRepo}>Repository</Button> : null}
                 </Modal.Body>
 
                 <Modal.Footer>
@@ -110,7 +132,7 @@ export default function Projects() {
                                         />
                                         {showTagline === index+i || viewPortWidth < 576 ?
                                             <div className="project-grid-text"><h1>{projects[index+i].title}</h1><br/>
-                                                <h4>{projects[index].tagline}</h4></div> : null}
+                                                <h4>{projects[index+i].tagline}</h4></div> : null}
                                     </Col> : null} </>
                                     ))}
 

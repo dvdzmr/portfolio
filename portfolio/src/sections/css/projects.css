@@ -32,3 +32,17 @@
 h2 {
     opacity: 1;
 }
+
+.modal-title, .modal-tagline {
+    text-align: center;
+    margin-left: auto;
+}
+
+.modal-button {
+    width: 80%;
+    margin: auto;
+}
+
+.modal-image {
+    border: 5px solid #555;
+}
