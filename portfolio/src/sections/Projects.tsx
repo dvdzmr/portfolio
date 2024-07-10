@@ -12,7 +12,7 @@ export default function Projects() {
         repository: "",
         deployment: ""
     }])
-    const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio-projects/main/projects.json"
+    const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio/main/projects/projects.json"
     const [modalTitle, setModalTitle] = useState("");
     const [modalDescription, setModalDescription] = useState("");
     const [modalDetailImage, setModalDetailImage] = useState("");
