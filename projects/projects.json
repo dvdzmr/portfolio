@@ -1,25 +1,24 @@
 [
     {
-    "title": "Bite",
-    "tagline": "Personalized homepage with widgets",
-    "images": {
-        "cover": "https://github.com/dvdzmr/portfolio/blob/develop/projects/media/bite.png?raw=true",
-        "detail": "https://github.com/dvdzmr/portfolio/blob/develop/projects/media/bite_detail.png?raw=true"
+        "title": "Placeholder_1",
+        "tagline": "tagline_1",
+        "images": {
+            "cover": "link1_1",
+            "detail": "link1_2"
+        },
+        "description": "description_1",
+        "repository": "repo_1_1",
+        "deployment": "repo_1_2"
     },
-    "description": "At the end of my fullstack bootcamp we had to do a final project, I decided for my project to create a spiritual successor of iGoogle. This service was a personalized homepage with integrated google search and access to a bunch of widgets, such as calendar, notes, etc. I made use of react and bootstrap for the majority of this project, and made API calls to openweatherapi and news.io for the weather and news widger respectively. You can check out my repository and deployment below.",
-    "repository":"https://github.com/dvdzmr/bite",
-    "deployment":"https://dvdzmr.github.io/bite/"
-    },
-    
     {
-    "title": "Buildroot",
-    "tagline": "Template for external tree building",
-    "images": {
-        "cover": "https://github.com/dvdzmr/portfolio/blob/develop/projects/media/buildroot.png?raw=true",
-        "detail": ""
-    },
-    "description": "During one of my freelance jobs, I had to create a slimmed down (embedded) linux image for use with a Raspberry Pi. I chose to use buildroot for this, and it quickly became apparent that it was far easier to navigate if you used an external tree, this way you could reset easily if there were any major issues but also freely update to newer or older versions of buildroot without having to copy over your work. This repo is the result of this struggle, and hopefully can help somebody out who needs it.",
-    "repository":"https://github.com/dvdzmr/buildroot-external-tree-sample",
-    "deployment":""
+        "title": "Placeholder_2",
+        "tagline": "tagline_2",
+        "images": {
+            "cover": "link2_1",
+            "detail": "link2_2"
+        },
+        "description": "description_2",
+        "repository": "repo_2_1",
+        "deployment": "repo_2_2"
     }
-  ]
+]
