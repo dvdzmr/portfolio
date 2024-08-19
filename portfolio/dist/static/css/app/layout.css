@@ -566,26 +566,8 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
-.flex {
-  display: flex;
-}
 .hidden {
   display: none;
-}
-.min-h-screen {
-  min-height: 100vh;
-}
-.flex-col {
-  flex-direction: column;
-}
-.items-center {
-  align-items: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.p-24 {
-  padding: 6rem;
 }
 
 :root {

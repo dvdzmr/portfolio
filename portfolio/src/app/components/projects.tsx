@@ -43,7 +43,7 @@ export default function ProjectPanel() {
     repository: "",
     deployment: ""
   }])
-  
+
   const projectUrl = "https://raw.githubusercontent.com/dvdzmr/portfolio/develop/projects/projects.json"
 
   React.useEffect(() => {
@@ -58,13 +58,13 @@ export default function ProjectPanel() {
     setValue(newValue);
   };
 
+  const tab = projects.map(project => <Tab key={project.title} label={project.title} {...a11yProps(0)}/>);
+
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item two" {...a11yProps(0)} />
-          <Tab label="Item three" {...a11yProps(0)} />
+        <Tabs value={value} onChange={handleChange} aria-label="project tabs">
+          {tab}
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={value}>
