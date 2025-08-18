@@ -23,7 +23,7 @@ export default function Home() {
         }}
       />
       <Box width={{xs: 1, sm: 0.9, md: 0.8, lg: 0.7}} m="auto">
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
       </Box>
 
