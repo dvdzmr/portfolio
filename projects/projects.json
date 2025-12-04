@@ -1,24 +1,7 @@
 [
-    {
-        "title": "Placeholder_1",
-        "tagline": "tagline_1",
-        "images": {
-            "cover": "link1_1",
-            "detail": "link1_2"
-        },
-        "description": "description_1",
-        "repository": "repo_1_1",
-        "deployment": "repo_1_2"
-    },
-    {
-        "title": "Placeholder_2",
-        "tagline": "tagline_2",
-        "images": {
-            "cover": "link2_1",
-            "detail": "link2_2"
-        },
-        "description": "description_2",
-        "repository": "repo_2_1",
-        "deployment": "repo_2_2"
-    }
+  {
+    "title": "Sample Project",
+    "description": "Feature showcase with images, text, code, etc.",
+    "file": "projects/sample.md"
+  }
 ]

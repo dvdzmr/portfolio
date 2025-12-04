@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Zamir — Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+<header class="hero">
+  <img src="assets/david_header.jpg" class="hero-img" alt="Header">
+  <div class="hero-overlay">
+    <h1 class="hero-title">David Zamir</h1>
+    <p class="hero-sub">Software Developer</p>
+  </div>
+</header>
+
+<main>
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div id="project-list" class="cards"></div>
+  </section>
+</main>
+
+<div id="project-modal" class="modal hidden">
+  <div class="modal-content">
+    <button id="modal-close" class="modal-x">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
