@@ -1,5 +1,5 @@
 
-# AED Box (`aed-box`)
+# AED Box
 
 `aed-box` is a monitoring and readiness platform for Automated External Defibrillators (AEDs), designed to reduce risk and improve response confidence.
 
