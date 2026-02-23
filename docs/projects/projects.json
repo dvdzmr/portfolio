@@ -1,7 +1,12 @@
 [
   {
-    "title": "Sample Project",
-    "description": "Feature showcase with images, text, code, etc.",
-    "file": "projects/sample.md"
+    "title": "AED Box (aed-box)",
+    "description": "AED readiness and maintenance tracking platform for monitoring status, service needs, and emergency availability.",
+    "file": "projects/aed.md"
+  },
+  {
+    "title": "Monitor Box (mbox-image + agent)",
+    "description": "Team edge monitoring project where I owned the Pi 3B Linux image and agent stack, including Azure container bootstrap and local API/database sync.",
+    "file": "projects/monitorbox.md"
   }
 ]
