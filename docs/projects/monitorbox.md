@@ -1,5 +1,5 @@
 
-# Monitor Box (`mbox-image` + agent)
+# Monitor Box
 
 `Monitor Box` is an edge monitoring platform for live production visibility and image-driven quality insights.
 
