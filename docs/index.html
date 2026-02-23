@@ -22,6 +22,27 @@
     <h2 class="section-title">Projects</h2>
     <div id="project-list" class="cards"></div>
   </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-wrap">
+      <p class="contact-intro">Send a message securely via Formspree.</p>
+      <form id="contact-form" class="contact-form">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" autocomplete="name" required>
+
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="5" required></textarea>
+
+        <input name="_gotcha" type="text" class="hp-field" tabindex="-1" autocomplete="off">
+        <button id="contact-submit" type="submit">Send Message</button>
+      </form>
+      <p id="contact-status" class="contact-status" aria-live="polite"></p>
+    </div>
+  </section>
 </main>
 
 <div id="project-modal" class="modal hidden">
